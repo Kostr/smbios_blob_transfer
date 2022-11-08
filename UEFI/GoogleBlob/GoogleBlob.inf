@@ -1,0 +1,30 @@
+[Defines]
+  INF_VERSION                    = 1.25
+  BASE_NAME                      = GoogleBlob
+  FILE_GUID                      = 5dbc2cc9-a8b4-4fc1-8d9f-c6343d7dd36a
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  GoogleBlob.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MyIpmiPkg/MyIpmiPkg.dec
+  SegFeaturePkg/SegFeaturePkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiLib
+
+[Protocols]
+  gMyIpmiInterfaceProtocolGuid
+
+[Guids]
+  gEfiSmbiosTableGuid
+  gEfiSmbios3TableGuid
+
+[Depex]
+  gMyIpmiInterfaceProtocolGuid AND
+  gEfiSmbiosProtocolGuid
