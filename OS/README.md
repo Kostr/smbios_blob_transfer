@@ -93,3 +93,39 @@ $ go build smbios_transfer.go
 $ ./smbios_transfer
 ```
 
+# Systemd unit
+
+Probably you'll want to execute `smbios_blob_transfer` program on every OS boot. Here is an example of a systemd unit that you can use:
+```
+[Unit]
+Description=Transfer SMBIOS tables to OpenBMC
+After=network.target
+
+[Service]
+Type=oneshot
+Environment=LD_LIBRARY_PATH=/home/user/ipmi-blob-tool/builddir/src
+ExecStart=/home/user/smbios_blob_transfer/OS/smbios-blob-transfer
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Create service file with such content (replacing `user` with your actual username in paths) in the `/etc/systemd/system/` folder:
+```
+sudo vi /etc/systemd/system/openbmc-smbios.service
+```
+
+After that reload the systemd service files to include the new service:
+```
+systemctl daemon-reload
+```
+
+Start new service:
+```
+systemctl start openbmc-smbios.service
+```
+
+If everything works correctly enable service to be launched on every boot:
+```
+systemctl enable openbmc-smbios.service
+```
