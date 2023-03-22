@@ -22,7 +22,7 @@ Build and run `smbios_blob_transfer`:
 ```
 $ cd ~
 $ git clone https://github.com/Kostr/smbios_blob_transfer.git
-$ cd smbios_blob_transfer
+$ cd smbios_blob_transfer/OS
 $ g++ smbios_blob_transfer.cpp -L~/ipmi-blob-tool/builddir/src/ -lipmiblob -I~/ipmi-blob-tool/src/ -o smbios_blob_transfer
 $ sudo LD_LIBRARY_PATH=~/ipmi-blob-tool/builddir/src/ ./smbios_blob_transfer
 ```
