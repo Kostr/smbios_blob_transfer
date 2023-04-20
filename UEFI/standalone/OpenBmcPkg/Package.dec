@@ -1,0 +1,16 @@
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = MyPkg
+  PACKAGE_GUID                   = 8d759d48-185b-4796-bb0f-8158ae158e40
+  PACKAGE_VERSION                = 0.1
+
+[Includes]
+
+[LibraryClasses]
+
+[Guids]
+
+[Ppis]
+
+[Protocols]
+

@@ -1,0 +1,27 @@
+[Defines]
+  INF_VERSION                    = 1.25
+  BASE_NAME                      = GoogleBlob_Drv
+  FILE_GUID                      = bf440b57-c7db-4fc0-902f-e9d8c8b232d2
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  GoogleBlob.c
+  KcsBmc.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiLib
+  IoLib
+
+[Guids]
+  gEfiSmbiosTableGuid
+  gEfiSmbios3TableGuid
+
+[Depex]
+  gEfiSmbiosProtocolGuid
