@@ -453,7 +453,7 @@ UefiMain (
       return Status;
     }
     Print(L"BlobEnumerate: id=%d: %a\n", id, BlobId);
-    if (!AsciiStrCmp(BlobId, "\\smbios")) {
+    if (AsciiStrCmp(BlobId, "/smbios")) {
       FreePool(BlobId);
       continue;
     }

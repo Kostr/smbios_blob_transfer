@@ -382,7 +382,7 @@ UefiMain (
       return Status;
     }
     DEBUG((EFI_D_INFO, "BlobEnumerate: id=%d: %a\n", id, BlobId));
-    if (!AsciiStrCmp(BlobId, "\\smbios")) {
+    if (AsciiStrCmp(BlobId, "/smbios")) {
       FreePool(BlobId);
       continue;
     }
